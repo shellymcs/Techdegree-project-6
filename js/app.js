@@ -45,12 +45,11 @@ const addPhraseToDisplay = arr => {
 //---check if a letter is in the phrase
 const checkLetter = button => {
     let letter = document.querySelectorAll('.letter');
-    let match;
     for (let i = 0; i < letter.length; i++) {
         let letter = letter[i];
-        if (button === letter.textContent.toLowerCase()) {
+        if (button.textContent === letter.textContent.toLowerCase()) {
          letter.classList.add('show');
-         match = letter.textContent;
+        let match = letter.textContent;
         }
     }
     return match;
@@ -115,7 +114,6 @@ qwerty.addEventListener('click',e =>{
 if (event.target.tagName === 'BUTTON'){
     const button =event.target;
     const notChosen = button.className.indexOf('chosen')< 0;
-    checkIfWin();
     if (notChosen){
         button.className += 'chosen';
         const letterFound = checkLetter(button.textContent);
