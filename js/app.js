@@ -7,7 +7,7 @@ const startButton = document.querySelector('.btn__reset');
 let phraseUl = document.querySelector('#phrase ul');
 const hearts = document.querySelectorAll('#scoreboard img');
 
-
+let letterFound;
 
 
 //----Arrays
@@ -45,17 +45,20 @@ const addPhraseToDisplay = arr => {
 
 //---check if a letter is in the phrase
 const checkLetter = button => {
-    let letter = document.querySelectorAll('li.textContent');
-    for (let i = 0; i < letter.length; i++) {
-        let letter = letter[i];
-        if (button.textContent === letter.textContent.toLowerCase()) {
+    letterFound = false;
+    let letters = phraseUl.querySelectorAll('.letter');
+    for (let i = 0; i < letters.length; i++) {
+        let letter = letters[i];
+        if (button === letter.textContent.toLowerCase()) {
          
-        let match = letter.classList.add('show');
+        letter.classList.add('show');
+        letterFound = true;
         }
     }
-    return match;
+    return letterFound;
 }
 //----check if the game has been won or lost
+
 const checkWin = () => {
     const letters = document.getElementsByClassName('letter');
     const show = document.getElementsByClassName('show');
@@ -64,23 +67,21 @@ const checkWin = () => {
     if (letters.length == show.length) {
         const overlay = document.getElementById('overlay');
         overlay.classList.remove("start");
-        overlay.classList.add("win");
-        overlay.style.display = "flex";
-        headLine.innerHTML = "Congratulations, You Won!";
+        overlay.add.style.display(document.getElementsByClassName('win'));
+        headLine.textContent = "Congratulations, You Won!";
         startGame.classList.add("restart");
         startGame.innerHTML = "Play Again";
 
-    } else if (incorrectGuesses > 4) {
+    } else if (hearts < 1) {
         const overlay = document.getElementById('overlay');
         overlay.classList.remove("start");
-        overlay.classList.add("lose");
-        overlay.style.display = "flex";
-        headLine.innerHTML = "Sorry, You Lost!";
+        overlay.add.style.display(document.getElementsByClassName('lose'));
+        headLine.textContent = "Sorry, You Lost!";
         startGame.classList.add("restart");
         startGame.innerHTML = "Try Again";
     }
 
-    restartGame();
+    startButton();
 
 }
 
@@ -117,8 +118,8 @@ if (event.target.tagName === 'BUTTON'){
     const notChosen = button.className.indexOf('chosen')< 0;
     if (notChosen){
         button.className += 'chosen';
-        const letterFound = checkLetter(button.textContent);
-        if (!letterFound && missed < 5) {
+        const match = checkLetter(button.textContent);
+        if (!match && missed < 5) {
          hearts[missed].src = "images/lostHeart.png";
          missed += 1;
     }
