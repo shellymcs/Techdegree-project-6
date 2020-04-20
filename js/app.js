@@ -33,8 +33,9 @@ const addPhraseToDisplay = arr => {
         const list = document.createElement('li');
         const character = phraseArray[i];
         list.textContent = character;
-        if(character ===''){
+        if(character ===' '){
             list.className +='space';
+    
         } else {
             list.className += 'letter';
         }
@@ -44,12 +45,12 @@ const addPhraseToDisplay = arr => {
 
 //---check if a letter is in the phrase
 const checkLetter = button => {
-    let letter = document.querySelectorAll('.letter');
+    let letter = document.querySelectorAll('li');
     for (let i = 0; i < letter.length; i++) {
         let letter = letter[i];
         if (button.textContent === letter.textContent.toLowerCase()) {
          letter.classList.add('show');
-        let match = letter.textContent;
+        let match = letter.textContent.style.display.getElementsByClassName('letter');
         }
     }
     return match;
