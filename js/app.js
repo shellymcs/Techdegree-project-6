@@ -45,12 +45,12 @@ const addPhraseToDisplay = arr => {
 
 //---check if a letter is in the phrase
 const checkLetter = button => {
-    let letter = document.querySelectorAll('li');
+    let letter = document.querySelectorAll('li.textContent');
     for (let i = 0; i < letter.length; i++) {
         let letter = letter[i];
         if (button.textContent === letter.textContent.toLowerCase()) {
-         letter.classList.add('show');
-        let match = letter.textContent.style.display.getElementsByClassName('letter');
+         
+        let match = letter.classList.add('show');
         }
     }
     return match;
