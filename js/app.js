@@ -30,25 +30,25 @@ let phraseArray = getRandomPhraseAsArray(phrases);
 const addPhraseToDisplay = arr => {
  // do stuff any arr that is passed in, and add to `#phrase ul`
     for( let i =0; i <phraseArray.length; i++){
-        const ul = document.getElement('li');
+        const list = document.createElement('li');
         const character = phraseArray[i];
-        li.textContent = character;
+        list.textContent = character;
         if(character ===''){
-            li.className +='space';
+            list.className +='space';
         } else {
-            li.className += 'letter';
+            list.className += 'letter';
         }
-        phraseUl.appendChild(li);
+        phraseUl.appendChild(list);
     };
 }
 
 //---check if a letter is in the phrase
 const checkLetter = button => {
-    let li = document.querySelectorAll('.letter');
+    let letter = document.querySelectorAll('.letter');
     let match;
-    for (let i = 0; i < li.length; i++) {
-        let letter = li[i];
-        if (button === letter.textContent) {
+    for (let i = 0; i < letter.length; i++) {
+        let letter = letter[i];
+        if (button === letter.textContent.toLowerCase()) {
          letter.classList.add('show');
          match = letter.textContent;
         }
