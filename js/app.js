@@ -72,7 +72,7 @@ const checkWin = () => {
         startGame.classList.add("start");
         startButton.innerHTML = "Play Again";
 
-    } else if (hearts < 1) {
+    } else if (missed >= 5) {
         const overlay = document.getElementById('overlay');
         overlay.classList.remove("start");
         overlay.add.style.display(document.getElementsByClassName('lose'));
