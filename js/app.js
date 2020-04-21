@@ -65,14 +65,12 @@ const checkLetter = button => {
 startButton.addEventListener('click',() => {
     const screenOverlay = document.getElementById('overlay');
     screenOverlay.style.display = 'none';
-    addPhraseToDisplay(phraseArray);
     // resets game 
     if (startButton.textContent === 'Play Again') {
         while(phraseUl.firstChild) phraseUl.removeChild(phraseUl.firstChild);
         phraseArray = getRandomPhraseAsArray(phrases);
-        addPhraseToDisplay(phraseArray);
         //remove keys
-        let buttons = keyboard.getElementsByTagName('BUTTON');
+        let buttons = qwerty.getElementsByTagName('BUTTON');
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove('chosen')
         }
@@ -83,6 +81,7 @@ startButton.addEventListener('click',() => {
         
         missed = 0;
     }
+    addPhraseToDisplay(phraseArray);
 });
 
 //----check if the game has been won or lost
