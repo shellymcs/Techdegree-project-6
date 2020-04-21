@@ -67,7 +67,7 @@ const checkWin = () => {
     if (letters.length == show.length) {
         const overlay = document.getElementById('overlay');
         overlay.classList.remove("start");
-        overlay.add.style.display(document.getElementsByClassName('win'));
+        overlay.classList.add('win');
         headLine.textContent = "Congratulations, You Won!";
         startGame.classList.add("start");
         startButton.innerHTML = "Play Again";
@@ -75,7 +75,7 @@ const checkWin = () => {
     } else if (missed >= 5) {
         const overlay = document.getElementById('overlay');
         overlay.classList.remove("start");
-        overlay.add.style.display(document.getElementsByClassName('lose'));
+        overlay.classList.add('lose');
         headLine.textContent = "Sorry, You Lost!";
         startGame.classList.add("start");
         startButton.innerHTML = "Try Again";
