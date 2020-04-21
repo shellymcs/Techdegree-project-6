@@ -85,6 +85,32 @@ startButton.addEventListener('click',() => {
     }
 });
 
+//----check if the game has been won or lost
+
+const checkWin = () => {
+    const letters = document.getElementsByClassName('letter');
+    const show = document.getElementsByClassName('show');
+    const headLine = document.getElementsByClassName("title")[0];
+
+    if (letters.length === show.length) {
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'flex';
+        headLine.textContent = "Congratulations, You Won!";
+        overlay.className= 'win';
+        startButton.textContent = 'Play Again';
+
+    } else if (missed >= 5) {
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'flex';
+        overlay.className = 'lose';
+        headLine.textContent = "Sorry, You Lost!";
+        startButton.textContent = 'Play Again';
+    }
+
+
+}
+
+
 //--------listen for the onscreen keyboard to be clicked
 qwerty.addEventListener('click',e =>{
 if (event.target.tagName === 'BUTTON'){
@@ -99,31 +125,6 @@ if (event.target.tagName === 'BUTTON'){
     }
     }
 }
-
+checkWin();
 });
 
-//----check if the game has been won or lost
-
-const checkWin = () => {
-    const letters = document.getElementsByClassName('letter');
-    const show = document.getElementsByClassName('show');
-    const headLine = document.getElementsByClassName("title")[0];
-
-    if (letters.length === show.length) {
-        const overlay = document.getElementById('overlay');
-        overlay.style.display = 'flex';
-        headLine.textContent = "Congratulations, You Won!";
-        overlay.className= 'win';
-        startGame.classList.add("start");
-        startButton.textContent = "Play Again";
-
-    } else if (missed >= 5) {
-        const overlay = document.getElementById('overlay');
-        overlay.style.display = 'flex';
-        overlay.className = 'lose';
-        headLine.textContent = "Sorry, You Lost!";
-        startButton.innerHTML = "Try Again";
-    }
-
-
-}
