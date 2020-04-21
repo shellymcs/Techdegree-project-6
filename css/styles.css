@@ -87,7 +87,7 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
-  transition: background-color 1s ease-in;
+  transition: all 1s ease-in;
 }
 
 .space {
@@ -98,6 +98,19 @@ button {
 .show {
   color: #000;
   background-color: #76CE82;
+}
+
+.show {
+  color: #000;
+  background-color: #76CE82;
+  animation: rock .5s;
+}
+
+@keyframes rock {
+  0% { transform: rotate(0deg); }
+  30% { transform: rotate(90deg); }
+  60% { transform: rotate(-90deg); }
+  100%{ transform: rotate(0deg);}
 }
 
 /* Keyboard */
