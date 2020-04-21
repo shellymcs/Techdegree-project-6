@@ -69,16 +69,16 @@ const checkWin = () => {
         overlay.classList.remove("start");
         overlay.add.style.display(document.getElementsByClassName('win'));
         headLine.textContent = "Congratulations, You Won!";
-        startGame.classList.add("restart");
-        startGame.innerHTML = "Play Again";
+        startGame.classList.add("start");
+        startButton.innerHTML = "Play Again";
 
     } else if (hearts < 1) {
         const overlay = document.getElementById('overlay');
         overlay.classList.remove("start");
         overlay.add.style.display(document.getElementsByClassName('lose'));
         headLine.textContent = "Sorry, You Lost!";
-        startGame.classList.add("restart");
-        startGame.innerHTML = "Try Again";
+        startGame.classList.add("start");
+        startButton.innerHTML = "Try Again";
     }
 
     startButton();
