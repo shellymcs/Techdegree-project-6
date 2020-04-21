@@ -67,14 +67,16 @@ const checkWin = () => {
     if (letters.length == show.length) {
         const overlay = document.getElementById('overlay');
         overlay.classList.remove("start");
+        overlay.style.display = 'inherit';
         overlay.classList.add('win');
         headLine.textContent = "Congratulations, You Won!";
         startGame.classList.add("start");
         startButton.innerHTML = "Play Again";
 
-    } else if (missed >= 5) {
+    } else if (hearts[missed] >= 5) {
         const overlay = document.getElementById('overlay');
         overlay.classList.remove("start");
+        overlay.style.display = 'inherit';
         overlay.classList.add('lose');
         headLine.textContent = "Sorry, You Lost!";
         startGame.classList.add("start");
