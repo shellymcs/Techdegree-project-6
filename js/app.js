@@ -57,35 +57,7 @@ const checkLetter = button => {
     }
     return letterFound;
 }
-//----check if the game has been won or lost
 
-const checkWin = () => {
-    const letters = document.getElementsByClassName('letter');
-    const show = document.getElementsByClassName('show');
-    const headLine = document.getElementsByClassName("title")[0];
-
-    if (letters.length == show.length) {
-        const overlay = document.getElementById('overlay');
-        overlay.classList.remove("start");
-        overlay.style.display = 'inherit';
-        overlay.classList.add('win');
-        headLine.textContent = "Congratulations, You Won!";
-        startGame.classList.add("start");
-        startButton.innerHTML = "Play Again";
-
-    } else if (hearts[missed] >= 5) {
-        const overlay = document.getElementById('overlay');
-        overlay.classList.remove("start");
-        overlay.style.display = 'inherit';
-        overlay.classList.add('lose');
-        headLine.textContent = "Sorry, You Lost!";
-        startGame.classList.add("start");
-        startButton.innerHTML = "Try Again";
-    }
-
-    startButton();
-
-}
 
 
 
@@ -129,3 +101,29 @@ if (event.target.tagName === 'BUTTON'){
 }
 
 });
+
+//----check if the game has been won or lost
+
+const checkWin = () => {
+    const letters = document.getElementsByClassName('letter');
+    const show = document.getElementsByClassName('show');
+    const headLine = document.getElementsByClassName("title")[0];
+
+    if (letters.length === show.length) {
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'flex';
+        headLine.textContent = "Congratulations, You Won!";
+        overlay.className= 'win';
+        startGame.classList.add("start");
+        startButton.textContent = "Play Again";
+
+    } else if (missed >= 5) {
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'flex';
+        overlay.className = 'lose';
+        headLine.textContent = "Sorry, You Lost!";
+        startButton.innerHTML = "Try Again";
+    }
+
+
+}
